@@ -1,0 +1,468 @@
+---
+layout: splash
+title: "Página Inicial"
+---
+
+{{ content }}
+<!-- Script para fechar o menu ao clicar em uma opção -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var menuToggle = document.querySelector(".greedy-nav__toggle"); // Botão do menu
+    var navLinks = document.querySelectorAll(".visible-links a"); // Links do menu
+
+    // Para cada link do menu, adicionamos um listener de clique
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        // Verifica se o menu está aberto
+        if (menuToggle && menuToggle.classList.contains("hidden") === false) {
+          menuToggle.click(); // Fecha o menu ao clicar no link
+        }
+      });
+    });
+  });
+</script>
+
+<div class="initial-content">
+  <div
+    class="page__hero--overlay"
+    style="
+      background-color: #000;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('/assets/images/mr-xerty-F0NG_nMTrOU-unsplash.jpg');
+    "
+  >
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        Toldos São José
+      </h1>
+
+      <p class="page__lead">
+        Especializada na fabricação e instalação de toldos e calhas, a Toldos
+        São José oferece soluções de alta qualidade para proteção de fachadas,
+        áreas externas e comerciais. Atendendo a pequenas empresas e
+        residências, nossa empresa familiar garante durabilidade, eficiência e
+        personalização em cada projeto, sempre com o compromisso de proporcionar
+        conforto e segurança em qualquer ambiente. Confie na expertise da Toldos
+        São José para cobrir suas necessidades com estilo e funcionalidade.
+      </p>
+
+      <!-- Botão Call to Action com WhatsApp -->
+      <p>
+        <a
+          href="https://wa.me/5551993674857?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços."
+          class="btn btn--whatsapp btn--large"
+          target="_blank"
+        >
+          Fale Conosco no WhatsApp
+        </a>
+      </p>
+    </div>
+  </div>
+  <style>
+    /* Estilo padrão do botão */
+    .btn--whatsapp {
+      background-color: #25d366; /* Verde WhatsApp */
+      color: white; /* Texto branco */
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease; /* Transição suave para o hover */
+    }
+
+    /* Estilo hover */
+    .btn--whatsapp:hover {
+      background-color: #20b358; /* Um tom mais escuro de verde ao passar o mouse */
+    }
+  </style>
+
+  <div id="main" role="main">
+    <article
+      class="splash"
+      itemscope
+      itemtype="https://schema.org/CreativeWork"
+    >
+      <meta itemprop="headline" content="Splash Page" />
+      <meta
+        itemprop="description"
+        content="Bacon ipsum dolor sit amet salami ham hock ham, hamburger corned beef short ribs kielbasa biltong t-bone drumstick tri-tip tail sirloin pork chop."
+      />
+      <meta itemprop="datePublished" content="2016-03-23T12:48:41-03:00" />
+
+      <section class="page__content" itemprop="text">
+        <!-- Seção de produtos com título e linha separadora -->
+        <div id="produtos" class="custom-product-section">
+          <h2 style="text-align: center; font-size: 2em; margin-bottom: 0.5em">
+            Nossos Produtos
+          </h2>
+
+          <div
+            class="custom-product-wrapper"
+            style="
+              display: flex !important;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              gap: 2%;
+            "
+          >
+            <!-- Produto 1: Toldos -->
+            <div
+              class="custom-product-item"
+              style="flex: 1 1 48% !important; margin-bottom: 2em"
+            >
+              <img
+                src="/assets/images/catherine-zaidova-Rc5Xsq9lom8-unsplash.jpg"
+                alt="Imagem de Toldos"
+                style="width: 100% !important; height: 200px; object-fit: cover"
+              />
+              <h2 style="margin-top: 0.5em">Toldos</h2>
+              <p>
+                Oferecemos toldos de alta qualidade para proteção contra o sol e
+                a chuva, ideais para áreas externas de todos os tipos.
+              </p>
+            </div>
+
+            <!-- Produto 2: Calhas -->
+            <div
+              class="custom-product-item"
+              style="flex: 1 1 48% !important; margin-bottom: 2em"
+            >
+              <img
+                src="/assets/images/mr-xerty-F0NG_nMTrOU-unsplash.jpg"
+                alt="Imagem de Calhas"
+                style="width: 100% !important; height: 200px; object-fit: cover"
+              />
+              <h2 style="margin-top: 0.5em">Calhas</h2>
+              <p>
+                Nossas calhas são feitas com os melhores materiais para garantir
+                durabilidade e eficiência na coleta e desvio de água da chuva.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          /* Responsividade para dispositivos móveis */
+          @media (max-width: 768px) {
+            .custom-product-wrapper {
+              flex-direction: column;
+              gap: 1.5em;
+            }
+
+            .custom-product-item {
+              flex: 1 1 100%;
+            }
+          }
+        </style>
+        <!-- produtos -->
+
+        <!-- Seção Projetos -->
+        <div id="projetos" class="custom-projects-section">
+          <h2 style="text-align: center; font-size: 2em; margin-bottom: 0.5em">
+            Projetos
+          </h2>
+
+          <div class="gallery" style="display: flex; flex-wrap: wrap; gap: 2em">
+            {% for project in site.data.projects %}
+            <div class="gallery-item" style="flex: 1 1 30%; margin-bottom: 2em">
+              <img
+                src="{{ project.image }}"
+                alt="{{ project.title }}"
+                style="
+                  width: 100%;
+                  height: 200px;
+                  object-fit: cover;
+                  border-radius: 8px;
+                "
+              />
+              <p>{{ project.excerpt }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Script para limitar o número de projetos em telas pequenas -->
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const projects = document.querySelectorAll(".gallery-item");
+
+            if (window.innerWidth <= 768) {
+              projects.forEach((project, index) => {
+                if (index >= 5) {
+                  project.classList.add("hidden-on-mobile");
+                }
+              });
+            }
+          });
+        </script>
+
+        <style>
+          /* Galeria de projetos */
+          .gallery {
+            display: flex;
+            flex-wrap: wrap;
+          }
+
+          .gallery-item {
+            flex: 1 1 30%;
+            margin: 0 !important;
+          }
+
+          /* Responsividade para telas pequenas */
+          @media (max-width: 768px) {
+            .gallery-item {
+              flex: 1 1 100% !important; /* Uma imagem por linha em telas pequenas */
+            }
+          }
+
+          .hidden-on-mobile {
+            display: none !important;
+          }
+        </style>
+
+        <!-- Projetos -->
+        <!-- 
+         <div id="projetos" class="custom-projects-section">
+          <h2 style="text-align: center; font-size: 2em; margin-bottom: 0.5em">
+            Projetos
+          </h2>
+        
+          <div class="gallery" style="display: flex; flex-wrap: wrap; gap: 2em">
+            {% for post in paginator.posts %}
+            <div class="gallery-item" style="flex: 1 1 30%; margin-bottom: 2em">
+              <img
+                src="{{ post.image }}"
+                alt="{{ post.title }}"
+                style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;"
+              />
+              <p>{{ post.excerpt }}</p>
+            </div>
+            {% endfor %}
+          </div>
+      
+          <div class="pagination">
+            {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path }}">Página Anterior</a>
+            {% endif %}
+        
+            {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}">Próxima Página</a>
+            {% endif %}
+          </div>
+        </div>
+        -->
+
+        <!-- Informacoes -->
+        <h2 style="text-align: center; font-size: 2em; margin-bottom: 0.5em">
+          Informações
+        </h2>
+
+        <div
+          id="informacoes"
+          class="contact-section"
+          style="background-color: #f0f0f0; padding: 2em 0"
+        >
+          <div
+            class="container"
+            style="
+              display: flex;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              text-align: center;
+              max-width: 1200px;
+              margin: 0 auto;
+            "
+          >
+            <!-- Coluna 1: Contato -->
+            <div
+              class="contact-item"
+              style="
+                flex: 1 1 30%;
+                margin-bottom: 1.5em;
+                padding-right: 1em;
+                border-right: 2px solid #ccc;
+              "
+            >
+              <img
+                src="/assets/icones/contato.png"
+                alt="Contato"
+                style="width: 50px; height: 50px; margin-bottom: 1em"
+              />
+              <h3 style="font-size: 1.5em; margin-bottom: 0.5em">Contato</h3>
+              <p>
+                Vera:
+                <a href="tel:+5551993674857" id="phone-link">(51) 99367-4857</a>
+              </p>
+              <p>
+                Carlos:
+                <a href="tel:+5551985736995" id="phone-link2"
+                  >(51) 98573-6995</a
+                >
+              </p>
+              <p>
+                Email:
+                <a href="mailto:esteiotoldos@gmail.com"
+                  >esteiotoldos@gmail.com</a
+                >
+              </p>
+            </div>
+
+            <!-- Script para condicionar o comportamento do link de telefone -->
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                var phoneLink = document.getElementById("phone-link");
+                var phoneLink2 = document.getElementById("phone-link2");
+                var isMobile = /iPhone|iPad|iPod|Android/i.test(
+                  navigator.userAgent
+                );
+
+                if (!isMobile) {
+                  // Se não for dispositivo móvel, abre o WhatsApp
+                  phoneLink.href =
+                    "https://wa.me/5551993674857?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços.";
+                  phoneLink.target = "_blank"; // Abre o WhatsApp em uma nova aba
+
+                  phoneLink2.href =
+                    "https://wa.me/5551985736995?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços.";
+                  phoneLink2.target = "_blank"; // Abre o WhatsApp em uma nova aba
+                } else {
+                  // Se for dispositivo móvel, adiciona à agenda
+                  phoneLink.href = "tel:+5551993674857"; // Ação padrão de telefone em celulares
+
+                  // Se for dispositivo móvel, adiciona à agenda
+                  phoneLink2.href = "tel:+5551985736995"; // Ação padrão de telefone em celulares
+                }
+              });
+            </script>
+
+            <!-- Coluna 2: Endereço -->
+            <div
+              class="contact-item"
+              style="
+                flex: 1 1 30%;
+                margin-bottom: 1.5em;
+                padding-right: 1em;
+                border-right: 2px solid #ccc;
+              "
+            >
+              <img
+                src="/assets/icones/endereco(1).png"
+                alt="Endereço"
+                style="width: 50px; height: 50px; margin-bottom: 1em"
+              />
+              <h3 style="font-size: 1.5em; margin-bottom: 0.5em">Endereço</h3>
+              <p>Rua A, 7</p>
+              <p>Bairro São José, Esteio</p>
+            </div>
+
+            <!-- Coluna 3: Horário de Funcionamento -->
+            <div
+              class="contact-item"
+              style="flex: 1 1 30%; margin-bottom: 1.5em"
+            >
+              <img
+                src="/assets/icones/calendario.png"
+                alt="Horário de Funcionamento"
+                style="width: 50px; height: 50px; margin-bottom: 1em"
+              />
+              <h3 style="font-size: 1.5em; margin-bottom: 0.5em">
+                Horário de Funcionamento
+              </h3>
+              <p>Seg - Sex: 08h às 18h</p>
+              <p>Sáb: 08h às 13h</p>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          /* Aumentar o tamanho dos ícones e garantir que não seja sobrescrito */
+          .contact-item img {
+            width: 80px !important; /* Forçar o tamanho dos ícones */
+            height: 80px !important; /* Forçar o tamanho dos ícones */
+            margin-bottom: 0.5em; /* Ajustar o espaçamento entre o ícone e o texto */
+          }
+
+          /* Remover o padding-top do h3 para aproximar o texto da imagem */
+          .contact-item h3 {
+            padding-top: 0 !important; /* Remover padding */
+            margin-top: 0.5em; /* Opcional: adicionar uma margem pequena */
+          }
+          /* Responsividade para dispositivos móveis */
+          @media (max-width: 768px) {
+            .container {
+              flex-direction: column;
+            }
+
+            .contact-item {
+              flex: 1 1 100%;
+              border-right: none !important;
+              padding-right: 0 !important;
+              border-bottom: 2px solid #ccc !important; /* Adiciona a linha de separação */
+              width: 80%; /* Define a largura da linha */
+              margin-left: auto; /* Centraliza a linha */
+              margin-right: auto; /* Centraliza a linha */
+            }
+
+            /* Remove a linha de separação do último item */
+            .contact-item:last-child {
+              border-bottom: none !important;
+            }
+
+            .contact-item img {
+              width: 60px !important;
+              height: 60px !important;
+            }
+          }
+        </style>
+        <!-- Informacoes -->
+        <!-- Seção de Mapa -->
+        <div
+          id="mapa"
+          class="map-section"
+          style="width: 100%; margin: 2em 0 0 0"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.2207396599592!2d-51.16147202444635!3d-29.857907222651352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95196f7529830a39%3A0x3113d90f323aa206!2sR.%20A%2C%2007%20-%20Liberdade%2C%20Esteio%20-%20RS%2C%2093265-282!5e0!3m2!1spt-BR!2sbr!4v1726785646194!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </section>
+    </article>
+  </div>
+</div>
+
+<style>
+  /* Ajuste do espaçamento superior do h2 */
+  h2 {
+    padding-top: 0.5em; /* Ajuste o valor conforme necessário */
+    margin-top: 0.5em; /* Também pode ajustar a margem para mais controle */
+  }
+
+  /* Se você quiser limitar essa alteração a seções específicas */
+  .custom-product-section h2,
+  .custom-projects-section h2,
+  .contact-section h2 {
+    padding-top: 0.5em; /* Reduzir o padding superior */
+    margin-top: 0.5em; /* Ajuste a margem superior se necessário */
+  }
+</style>
+
+<!-- {% if paginator %} {% assign posts = paginator.posts %} {% else %} {% assign
+posts = site.posts %} {% endif %} {% assign entries_layout = page.entries_layout
+| default: 'list' %}
+<div class="entries-{{ entries_layout }}">
+  {% for post in posts %} {% include archive-single.html type=entries_layout %}
+  {% endfor %}
+</div>
+
+{% include paginator.html %} 
+
+<a href="https://www.flaticon.com/br/icones-gratis/contato" title="contato ícones">Contato ícones criados por Atif Arshad - Flaticon</a>
+-->
