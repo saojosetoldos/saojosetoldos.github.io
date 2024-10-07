@@ -1,23 +1,14 @@
 - title: Projeto 1
-  image: /assets/images/projeto1.jpg
+  image: /assets/projetos/foto1.jpg
 
 - title: Projeto 2
-  image: /assets/images/projeto2.jpg
+  image: /assets/projetos/foto2.jpg
 
-- title: Projeto 1
-  image: /assets/images/projeto1.jpg
+- title: Projeto 3
+  image: /assets/projetos/foto3.jpg
 
-- title: Projeto 2
-  image: /assets/images/projeto2.jpg
+- title: Projeto 4
+  image: /assets/projetos/foto4.jpg
 
-- title: Projeto 1
-  image: /assets/images/projeto1.jpg
-
-- title: Projeto 2
-  image: /assets/images/projeto2.jpg
-
-- title: Projeto 1
-  image: /assets/images/projeto1.jpg
-
-- title: Projeto 2
-  image: /assets/images/projeto2.jpg
+- title: Projeto 5
+  image: /assets/projetos/foto5.jpg
